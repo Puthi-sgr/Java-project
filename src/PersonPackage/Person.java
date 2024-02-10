@@ -34,4 +34,16 @@ public class Person {
                "\nname: " + name +
                 "\nage: " + age;
     }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public String getDoB(){
+        return this.DoB;
+    }
+    
+    public int getAge(){
+        return this.age;
+    }
 }

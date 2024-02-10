@@ -23,7 +23,7 @@ public class Project_practice {
         EmployeeList.add(employee2);
         CustomerList.add(customer1);
         CustomerList.add(customer2);
-        
+
         while(isRunning){
             System.out.println("=============================================");
             System.out.println("|          Welcome to the Registration       |");
@@ -78,10 +78,13 @@ public class Project_practice {
                     }
                     break;
                 case 2:
-                    System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-                    System.out.println("|   C. Display Customer     |");
-                    System.out.println("|   E. Display Employee     |");
-                    System.out.println("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
+                    System.out.println("+-------------------------------+");
+                    System.out.println("|       Display Information     |");
+                    System.out.println("+-------------------------------+");
+                    System.out.println("|   C. Display Customer         |");
+                    System.out.println("|   E. Display Employee         |");
+                    System.out.println("+-------------------------------+");
+
 
                     char displayChoice = scanner.next().toUpperCase().charAt(0);
                     if(displayChoice == 'C'){
@@ -91,6 +94,48 @@ public class Project_practice {
                     }                        
                     break;
                 case 3:
+                    
+                    System.out.println("+-------------------------------+");
+                    System.out.println("|       Update Information      |");
+                    System.out.println("+-------------------------------+");
+                    System.out.println("|   C. Update Customer         |");
+                    System.out.println("|   E. Update Employee         |");
+                    System.out.println("+-------------------------------+");
+                    System.out.print("\nYour choice: ");
+                        char updateChoice = scanner.next().toUpperCase().charAt(0);
+                    boolean isFound = false;
+                    do{        
+                        //find index using id
+                        System.out.print("\nEnter ID: ");
+                        int updateId = scanner.nextInt();                 
+                        if(updateChoice == 'C'){
+                            for(int i = 0; i < CustomerList.size(); i++){
+                                if(CustomerList.get(i).getCustomerId() == updateId){
+                                    System.out.println("Selected Id has been found");
+                                    Customer temp = new Customer();
+                                    temp.scanCustomer();
+                                    CustomerList.set(i, temp);
+                                    isFound = true;
+                                    break;
+                                }
+                            }       
+                        }else if(updateChoice == 'E'){
+                            for(int i = 0; i < EmployeeList.size(); i++){
+                                if(EmployeeList.get(i).getId() == updateId){
+                                    System.out.println("Selected Id has been found");
+                                    Employee temp = new Employee();
+                                    temp.scanEmployee();
+                                    EmployeeList.set(i, temp);
+                                    isFound = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(!isFound){
+                            System.out.println("Invalid id");
+                        }
+                    }while(!isFound);
+                             
                     break;
                 case 4:
                     

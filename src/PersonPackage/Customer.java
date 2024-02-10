@@ -36,5 +36,13 @@ public class Customer extends Person{
         return super.toString() +
                "\nContact Number: " + contactNumber
                + "\nCustomer Id: " + customerId + "\n";
-    }  
+    }
+    
+    public int getContactNumber(){
+        return this.contactNumber;
+    }
+    
+    public int getCustomerId(){
+        return this.customerId;
+    }
 }

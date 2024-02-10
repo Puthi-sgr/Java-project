@@ -47,4 +47,16 @@ public class Employee extends Person{
            "Salary: " + salary + "$\n" +
            "ID: " + id + "\n";
     }
+    
+    public String getPosition(){
+        return this.position;
+    }
+    
+    public float getSalary(){
+        return this.salary;
+    }
+    
+    public int getId(){
+        return this.id;
+    }
 }
