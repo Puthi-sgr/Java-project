@@ -3,6 +3,8 @@ package project_practice;
 import java.util.Scanner;
 import PersonPackage.*;
 import java.util.ArrayList;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Project_practice {
     public static void main(String[] args) {
@@ -34,9 +36,11 @@ public class Project_practice {
             System.out.println("|          1. Register                        |");
             System.out.println("|          2. Display                         |");
             System.out.println("|          3. Update                          |");
-            System.out.println("|          4. Exit                            |");
+            System.out.println("|          4. Search                          |");
+            System.out.println("|          5. Exit                            |");
             System.out.println("|                                             |");
             System.out.println("=============================================");
+
             
             Scanner scanner = new Scanner(System.in);
             option = scanner.nextInt();
@@ -137,7 +141,32 @@ public class Project_practice {
                     }while(!isFound);
                              
                     break;
-                case 4:
+                case 4: 
+                    char searchChoice = scanner.next().toUpperCase().charAt(0);
+                    int idSearch = scanner.nextInt();
+                    isFound = false;
+   
+                    
+                    if(searchChoice == 'E'){
+                        for(int i = 0; i < EmployeeList.size(); i++){
+                            if(idSearch == EmployeeList.get(i).getId()){
+                                isFound = true;
+                            }
+                        }
+                    }else if(searchChoice == 'C'){
+                        for(int i = 0; i < CustomerList.size(); i++){
+                            if(idSearch == CustomerList.get(i).getCustomerId()){
+                                isFound = true;
+                            }
+                        }
+                    }
+                    
+                    if(isFound){
+                        System.out.println("found");
+                    }else{
+                        System.out.println("not found");
+                    }
+                case 5:
                     
                     isRunning = false;
                     break;
