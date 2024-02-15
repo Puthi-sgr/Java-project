@@ -1,6 +1,10 @@
 
 package PersonPackage;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Employee extends Person{   
@@ -8,6 +12,9 @@ public class Employee extends Person{
     public String position;
     float salary;
     int id;
+    String EmployeeFilePath = "C:\\Users\\Dell\\Documents\\CODE stuff\\NetBeansProjects\\Project_practice\\src\\PersonPackage\\Employee.txt";
+    File employeeFile = new File(EmployeeFilePath);
+   
     Scanner scanner = new Scanner(System.in);
     
     public Employee() {
@@ -46,6 +53,22 @@ public class Employee extends Person{
            "\nPosition: " + position + "\n" +
            "Salary: " + salary + "$\n" +
            "ID: " + id + "\n";
+    }
+    
+    public void writeToFileEmployee() throws IOException{
+        if(employeeFile.exists()){
+           try{
+                FileWriter EmployeeWriter = new FileWriter(EmployeeFilePath , true);
+                EmployeeWriter.write("\n{\n" + this.toString() + "\n}");
+                EmployeeWriter.flush();
+                System.out.println("File insertion success.");
+           }catch (IOException e) {           
+                e.printStackTrace();
+                System.err.println("Error writing to file: " + e.getMessage());             
+           }
+        }else{
+            System.out.println("File does not exists.");
+        }     
     }
     
     public String getPosition(){

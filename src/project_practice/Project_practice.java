@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Project_practice {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         int option;
         Character insertionChoice;
@@ -71,12 +71,14 @@ public class Project_practice {
                                 Employee temp = new Employee();
                                 temp.scanEmployee();
                                 EmployeeList.add(temp);
+                                temp.writeToFileEmployee();
                             }                             
                         }else if(insertionChoice == 'c' || insertionChoice == 'C'){
                             for(int i = 0; i < numberOfPeople; i++){
                                 Customer temp = new Customer();
                                 temp.scanCustomer();
                                 CustomerList.add(temp);
+                                temp.writeToFileCustomer();
                             }  
                         }
                     }
@@ -176,6 +178,5 @@ public class Project_practice {
             }
         }
         
-    }
-    
+    }   
 }

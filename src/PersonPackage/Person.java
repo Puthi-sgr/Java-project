@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Person {
     
+    
     private String DoB;
     private String name;
     private int age;
